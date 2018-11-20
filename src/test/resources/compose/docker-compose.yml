@@ -1,0 +1,16 @@
+version: '2'
+services:
+  mongodb:
+    image: mongo:4.0.1-xenial
+    container_name: mongodb
+    networks:
+      - df-network
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - df-network
+networks:
+  df-network:
+    driver: brigde
