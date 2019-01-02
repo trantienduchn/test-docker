@@ -42,11 +42,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
-import org.testcontainers.containers.Container;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.wait.strategy.WaitAllStrategy;
-
-import com.github.fge.lambdas.Throwing;
 
 class SwiftTest {
 
@@ -78,15 +75,6 @@ class SwiftTest {
 
         public void start() {
             swiftContainer.start();
-            Integer swiftPort = swiftContainer.getMappedPort(SWIFT_PORT);
-            String containerIpAddress = swiftContainer.getContainerIpAddress();
-            Container.ExecResult execResult =
-                Throwing.supplier(() ->
-                    swiftContainer.execInContainer(
-                        "/swift/bin/register-swift-endpoint.sh",
-                        "http://" + containerIpAddress + ":" + swiftPort))
-                    .sneakyThrow()
-                    .get();
         }
 
         String getAuth10Host() {
