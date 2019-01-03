@@ -111,6 +111,16 @@
             <version>0.5.0</version>
         </dependency>
         <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor.rabbitmq</groupId>
+            <artifactId>reactor-rabbitmq</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.jclouds.api</groupId>
             <artifactId>openstack-swift</artifactId>
             <version>${jclouds.version}</version>
